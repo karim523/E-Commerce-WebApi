@@ -14,7 +14,7 @@ namespace Persistance.Repositories
 
         public void Delete(TEntity entity) => _context.Set<TEntity>().Remove(entity);
 
-        public async Task<IEnumerable<TEntity>> GetAllAsync(bool AsNoTracking)=> AsNoTracking?
+        public async Task<IEnumerable<TEntity>> GetAllAsync(bool AsNoTracking = false) => AsNoTracking?
            await  _context.Set<TEntity>().AsNoTracking().ToListAsync() :
            await _context.Set<TEntity>().ToListAsync();
 
