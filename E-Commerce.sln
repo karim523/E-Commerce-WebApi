@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistance", "Infrastructure\persistance\Persistance.csproj", "{3F387F4F-A2BD-45C2-BEB4-55B73B983DFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Preentation", "Infrastructure\Preentation\Preentation.csproj", "{2D3D0F1F-00ED-48FE-9FFB-64C430E20C10}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "Infrastructure\Preentation\Presentation.csproj", "{2D3D0F1F-00ED-48FE-9FFB-64C430E20C10}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{9125B0B9-3F44-469A-B12E-E284A3088953}"
 EndProject

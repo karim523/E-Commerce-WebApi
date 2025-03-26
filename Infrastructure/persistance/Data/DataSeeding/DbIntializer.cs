@@ -26,7 +26,7 @@ namespace Persistance.Data.DataSeeding
                     await _context.Database.MigrateAsync();
                     if (!_context.ProductTypes.Any())
                     {
-                        var typeData = await File.ReadAllTextAsync(@"..\Infrastructure\persistance\Data\DataSeeding\types.json");
+                        var typeData = await File.ReadAllTextAsync(@"..\Infrastructure\Persistance\Data\DataSeeding\types.json");
                         var types = JsonSerializer.Deserialize<List<ProductType>>(typeData);
                         if (types is not null && types.Any())
                         {
@@ -38,7 +38,7 @@ namespace Persistance.Data.DataSeeding
 
                     if (!_context.ProductBrands.Any())
                     {
-                        var brandsData = await File.ReadAllTextAsync(@"..\Infrastructure\persistance\Data\DataSeeding\brands.json");
+                        var brandsData = await File.ReadAllTextAsync(@"..\Infrastructure\Persistance\Data\DataSeeding\brands.json");
                         var brands = JsonSerializer.Deserialize<List<ProductType>>(brandsData);
                         if (brands is not null && brands.Any())
                         {
@@ -50,7 +50,7 @@ namespace Persistance.Data.DataSeeding
 
                     if (!_context.Products.Any())
                     {
-                        var productsData = await File.ReadAllTextAsync(@"..\Infrastructure\persistance\Data\DataSeeding\products.json");
+                        var productsData = await File.ReadAllTextAsync(@"..\Infrastructure\Persistance\Data\DataSeeding\products.json");
                         var products = JsonSerializer.Deserialize<List<ProductType>>(productsData);
                         if (products is not null && products.Any())
                         {
