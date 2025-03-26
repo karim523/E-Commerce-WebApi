@@ -18,9 +18,18 @@ namespace Persistance.Repositories
            await  _context.Set<TEntity>().AsNoTracking().ToListAsync() :
            await _context.Set<TEntity>().ToListAsync();
 
+        public async Task<IEnumerable<TEntity>> GetAllAsync(Specifications<TEntity> specifications)
+            =>await ApplySpecifications(specifications).ToListAsync();
+              
         public async Task<TEntity?> GetByIdAsync(TKey id) => await _context.Set<TEntity>().FindAsync(id);
+
+        public Task<TEntity?> GetByIdAsync(Specifications<TEntity> specifications)
+                    => await ApplySpecifications(specifications).FirstOrDefaultAsync();
+
 
         public void Update(TEntity entity) => _context.Set<TEntity>().Update(entity);
 
+        private IQueryable<TEntity> ApplySpecifications(Specifications<TEntity> specifications)
+            => SpecificationEvaluator.GetQuery<TEntity>(_context.Set<TEntity>(), specifications);
     }
 }
