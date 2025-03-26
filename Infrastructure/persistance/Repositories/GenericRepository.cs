@@ -23,8 +23,8 @@ namespace Persistance.Repositories
               
         public async Task<TEntity?> GetByIdAsync(TKey id) => await _context.Set<TEntity>().FindAsync(id);
 
-        public Task<TEntity?> GetByIdAsync(Specifications<TEntity> specifications)
-                    => await ApplySpecifications(specifications).FirstOrDefaultAsync();
+        public async Task<TEntity?> GetByIdAsync(Specifications<TEntity> specifications)
+            => await ApplySpecifications(specifications).FirstOrDefaultAsync();
 
 
         public void Update(TEntity entity) => _context.Set<TEntity>().Update(entity);
