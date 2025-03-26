@@ -1,7 +1,4 @@
-﻿using Domain.Contracts;
-using Persistance.Data;
-
-namespace Persistance.Repositories
+﻿namespace Persistance.Repositories
 {
     public class GenericRepository<TEntity, TKey> : IGenericRepository<TEntity, TKey> where TEntity : BaseEntity<TKey>
     {

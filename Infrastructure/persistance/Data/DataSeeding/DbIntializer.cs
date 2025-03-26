@@ -1,10 +1,4 @@
-﻿using Domain.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
+﻿using System.Text.Json;
 
 namespace Persistance.Data.DataSeeding
 {
@@ -39,7 +33,7 @@ namespace Persistance.Data.DataSeeding
                     if (!_context.ProductBrands.Any())
                     {
                         var brandsData = await File.ReadAllTextAsync(@"..\Infrastructure\Persistance\Data\DataSeeding\brands.json");
-                        var brands = JsonSerializer.Deserialize<List<ProductType>>(brandsData);
+                        var brands = JsonSerializer.Deserialize<List<ProductBrand>>(brandsData);
                         if (brands is not null && brands.Any())
                         {
                             await _context.AddRangeAsync(brands);
@@ -51,7 +45,7 @@ namespace Persistance.Data.DataSeeding
                     if (!_context.Products.Any())
                     {
                         var productsData = await File.ReadAllTextAsync(@"..\Infrastructure\Persistance\Data\DataSeeding\products.json");
-                        var products = JsonSerializer.Deserialize<List<ProductType>>(productsData);
+                        var products = JsonSerializer.Deserialize<List<Product>>(productsData);
                         if (products is not null && products.Any())
                         {
                             await _context.AddRangeAsync(products);

@@ -1,5 +1,4 @@
-﻿
-namespace Persistance.Repositories
+﻿namespace Persistance.Repositories
 {
     public class UnitOfWork : IUnitOfWork
     {
