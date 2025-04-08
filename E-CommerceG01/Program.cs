@@ -1,6 +1,7 @@
-
 using Domain.Contracts;
+using E_CommerceG01.Factories;
 using E_CommerceG01.Middlewares;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Persistance.Data;
 using Persistance.Data.DataSeeding;
@@ -28,12 +29,18 @@ namespace E_CommerceG01
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
             builder.Services.AddScoped<IDbIntializer, DbIntializer>();
+            builder.Services.Configure<ApiBehaviorOptions>(
+                options =>
+                {
+                    options.InvalidModelStateResponseFactory = ApiResponseFactory.CustomValidationErrorResponse;
+                }
+            );
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             builder.Services.AddScoped<IServiceManager, ServiceManager>();
             builder.Services.AddAutoMapper(typeof(Services.AssemblyReference).Assembly);
             var app = builder.Build();
             app.UseMiddleware<GlobalErrorHandlingMiddleware>();
-            await IntializeDbAsync(app);    
+            await IntializeDbAsync(app);
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
@@ -46,7 +53,7 @@ namespace E_CommerceG01
 
             app.UseAuthorization();
 
-            
+
             app.MapControllers();
 
             app.Run();
