@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Services.Abstraction;
-using Shared;
+using Shared.Dtos;
 
 namespace Presentation
 {

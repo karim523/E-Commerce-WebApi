@@ -3,6 +3,7 @@ global using Domain.Contracts;
 global using Domain.Entities;
 global using Shared;
 using Services.Specifications;
+using Shared.Dtos;
 
 namespace Services
 {
