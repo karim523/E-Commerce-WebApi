@@ -9,6 +9,9 @@
         }
         public async Task AddAsync(TEntity entity)=> await _context.Set<TEntity>().AddAsync(entity);
 
+        public async Task<int> CountAsync(Specifications<TEntity> specifications)
+            => await ApplySpecifications(specifications).CountAsync();
+        
         public void Delete(TEntity entity) => _context.Set<TEntity>().Remove(entity);
 
         public async Task<IEnumerable<TEntity>> GetAllAsync(bool AsNoTracking = false) => AsNoTracking?
