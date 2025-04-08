@@ -34,6 +34,7 @@
                         break;
                 }
             }
+            ApplyPagination(parameters.PageIndex,parameters.PageSize);
         }
 
     }
