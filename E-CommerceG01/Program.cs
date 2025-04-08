@@ -1,5 +1,6 @@
 
 using Domain.Contracts;
+using E_CommerceG01.Middlewares;
 using Microsoft.EntityFrameworkCore;
 using Persistance.Data;
 using Persistance.Data.DataSeeding;
@@ -31,6 +32,7 @@ namespace E_CommerceG01
             builder.Services.AddScoped<IServiceManager, ServiceManager>();
             builder.Services.AddAutoMapper(typeof(Services.AssemblyReference).Assembly);
             var app = builder.Build();
+            app.UseMiddleware<GlobalErrorHandlingMiddleware>();
             await IntializeDbAsync(app);    
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
