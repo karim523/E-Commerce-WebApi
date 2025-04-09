@@ -1,7 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using Shared.Dtos;
-
-namespace Services.MappingProfiles
+﻿namespace Services.MappingProfiles
 {
     class PictureUrlResolver(IConfiguration _configuration) : IValueResolver<Product, ProductResultDTO, string>
     {

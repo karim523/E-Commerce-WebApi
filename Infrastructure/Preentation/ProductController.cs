@@ -6,25 +6,25 @@ using Shared.Dtos;
 namespace Presentation
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("/api/[controller]")]
     public class ProductsController(IServiceManager serviceManager) : ControllerBase
     {
 
-        [HttpGet( "GetProducts")]
+        [HttpGet]
         public async Task<ActionResult<IEnumerable<ProductResultDTO>>> GetAllProducts([FromQuery]ProductSpecificationsParameters parameters)
         {
             var products = await serviceManager.ProductService.GetAllProductsAsync(parameters);
             return Ok(products);    
         }
 
-        [HttpGet("GetBrands")]
+        [HttpGet("Brands")]
         public async Task<ActionResult<IEnumerable<BrandResultDTO>>> GetAllBrands()
         {
             var brands = await serviceManager.ProductService.GetAllBrandsAsync();
             return Ok(brands);
         }
 
-        [HttpGet("GetTypes")]
+        [HttpGet("Types")]
         public async Task<ActionResult<IEnumerable<BrandResultDTO>>> GetAllTypes()
         {
             var types = await serviceManager.ProductService.GetAllTypesAsync();

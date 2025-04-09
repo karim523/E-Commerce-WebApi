@@ -1,6 +1,4 @@
-﻿global using Services.Abstraction;
-
-namespace Services
+﻿namespace Services
 {
     public class ServiceManager : IServiceManager
     {

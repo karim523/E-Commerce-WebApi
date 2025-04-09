@@ -1,6 +1,4 @@
-﻿using Shared.Dtos;
-
-namespace Services.MappingProfiles
+﻿namespace Services.MappingProfiles
 {
     public class ProductProfile : Profile
     {

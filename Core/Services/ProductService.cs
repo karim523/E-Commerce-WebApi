@@ -1,11 +1,4 @@
-﻿global using AutoMapper;
-global using Domain.Contracts;
-global using Domain.Entities;
-global using Shared;
-using Services.Specifications;
-using Shared.Dtos;
-
-namespace Services
+﻿namespace Services
 {
     public class ProductService(IUnitOfWork _unitOfWork, IMapper _mapper) : IProductService
     {
