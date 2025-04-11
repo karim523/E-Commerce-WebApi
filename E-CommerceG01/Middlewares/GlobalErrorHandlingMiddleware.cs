@@ -1,8 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Shared.ErrorModels;
-using System.Net;
-
-namespace E_CommerceG01.Middlewares
+﻿namespace E_CommerceG01.Middlewares
 {
     public class GlobalErrorHandlingMiddleware
     {

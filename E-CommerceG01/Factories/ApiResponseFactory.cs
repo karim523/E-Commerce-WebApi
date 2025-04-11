@@ -1,8 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Shared.ErrorModels;
-using System.Net;
-
-namespace E_CommerceG01.Factories
+﻿namespace E_CommerceG01.Factories
 {
     public class ApiResponseFactory
     {
