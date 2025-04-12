@@ -1,4 +1,6 @@
 ﻿
+using StackExchange.Redis;
+
 namespace E_CommerceG01.Extensions
 {
     public static class InfrastructureServicesExtenions
@@ -12,7 +14,9 @@ namespace E_CommerceG01.Extensions
             });
             services.AddScoped<IDbIntializer, DbIntializer>();
 
-             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            services.AddSingleton<IConnectionMultiplexer>(services=> ConnectionMultiplexer.Connect(configuration.GetConnectionString("Redis")!));
 
             return services;
         }

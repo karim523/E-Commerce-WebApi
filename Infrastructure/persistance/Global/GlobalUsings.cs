@@ -5,3 +5,5 @@ global using System.Reflection;
 global using Domain.Contracts;
 global using Persistance.Data;
 global using System.Collections.Concurrent;
+global using StackExchange.Redis;
+global using System.Text.Json;
