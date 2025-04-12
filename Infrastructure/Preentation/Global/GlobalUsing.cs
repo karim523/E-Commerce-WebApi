@@ -1,0 +1,6 @@
+﻿global using Microsoft.AspNetCore.Mvc;
+global using Services.Abstraction;
+global using Shared;
+global using Shared.Dtos;
+global using Shared.ErrorModels;
+global using System.Net;

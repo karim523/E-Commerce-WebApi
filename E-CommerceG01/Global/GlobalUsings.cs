@@ -1,0 +1,16 @@
+﻿global using Services.Abstraction;
+global using Services;
+global using Domain.Contracts;
+global using E_CommerceG01.Extensions;
+global using E_CommerceG01.Factories;
+global using E_CommerceG01.Middlewares;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.EntityFrameworkCore;
+global using Persistance.Data;
+global using Persistance.Data.DataSeeding;
+global using Persistance.Repositories;
+global using Microsoft.AspNetCore.Http;
+global using Shared.ErrorModels;
+global using System.Net;
+global using StackExchange.Redis;
+global using Domain.Exceptions;
