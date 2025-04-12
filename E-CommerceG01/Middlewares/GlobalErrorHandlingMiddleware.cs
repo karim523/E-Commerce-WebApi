@@ -1,4 +1,5 @@
-﻿namespace E_CommerceG01.Middlewares
+﻿
+namespace E_CommerceG01.Middlewares
 {
     public class GlobalErrorHandlingMiddleware
     {
@@ -43,6 +44,11 @@
         {
             httpContext.Response.ContentType = "application/json";
             httpContext.Response.StatusCode = (int) HttpStatusCode.InternalServerError;
+            httpContext.Response.StatusCode = ex switch
+            {
+                NotFoundException => (int)HttpStatusCode.NotFound,
+                _ => (int)HttpStatusCode.InternalServerError
+            };
             var response = new ErrorDetails
             {
                 StatusCode = httpContext.Response.StatusCode,

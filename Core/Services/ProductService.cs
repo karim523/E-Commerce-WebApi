@@ -1,4 +1,6 @@
-﻿namespace Services
+﻿using Domain.Exceptions;
+
+namespace Services
 {
     public class ProductService(IUnitOfWork _unitOfWork, IMapper _mapper) : IProductService
     {
@@ -46,12 +48,10 @@
         {
             var product = await _unitOfWork.GetRepository<Product, int>().GetByIdAsync(
                 new ProductWithBrandAndTypeSpecifications(id));
-
-            if (product is not null)
-                return _mapper.Map<ProductResultDTO>(product);
+            
+            return product is null ? throw new ProductNotFoundException(id): _mapper.Map<ProductResultDTO>(product);
        
 
-            return null;
 
         }
     }

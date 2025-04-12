@@ -12,3 +12,5 @@ global using Persistance.Repositories;
 global using Microsoft.AspNetCore.Http;
 global using Shared.ErrorModels;
 global using System.Net;
+global using StackExchange.Redis;
+global using Domain.Exceptions;
