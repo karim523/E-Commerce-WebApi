@@ -1,8 +1,6 @@
 ﻿namespace Presentation
 {
-    [ApiController]
-    [Route("/api/[controller]")]
-    public class ProductsController(IServiceManager serviceManager) : ControllerBase
+    public class ProductsController(IServiceManager serviceManager) : ApiController
     {
 
         [HttpGet]
@@ -25,9 +23,7 @@
             var types = await serviceManager.ProductService.GetAllTypesAsync();
             return Ok(types);
         }
-        [ProducesResponseType(typeof(ErrorDetails),(int) HttpStatusCode.NotFound)]
-        [ProducesResponseType(typeof(ErrorDetails),(int) HttpStatusCode.InternalServerError)]
-        [ProducesResponseType(typeof(ValidationErrorResponse),(int) HttpStatusCode.BadRequest)]
+        
         [ProducesResponseType(typeof(ProductResultDTO),(int) HttpStatusCode.OK)]
         [HttpGet("{id}")]
         public async Task<ActionResult<ProductResultDTO>> GetProduct(int id)

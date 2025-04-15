@@ -4,14 +4,19 @@
     {
         private readonly Lazy<IProductService> _productService;
         private readonly Lazy<IBasketService> _basketService;
-        public  ServiceManager(IUnitOfWork unitOfWork, IMapper mapper, IBasketRepository basketRepository)
+        private readonly Lazy<IAuthenticationService> _authenticationService;
+        public  ServiceManager(IUnitOfWork unitOfWork, IMapper mapper, IBasketRepository basketRepository, UserManager<User> userManager)
         {
             _productService = new Lazy<IProductService>(() => new ProductService(unitOfWork,mapper));
 
             _basketService = new Lazy<IBasketService>(() => new BasketService(basketRepository, mapper));
+            
+            _authenticationService = new Lazy<IAuthenticationService>(() => new AuthenticationService(userManager));
         }
         public IProductService ProductService => _productService.Value;
 
         public IBasketService BasketService => _basketService.Value;
+
+        public IAuthenticationService AuthenticationService => _authenticationService.Value;
     }
 }

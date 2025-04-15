@@ -6,3 +6,4 @@ global using Services.Specifications;
 global using Shared.Dtos;
 global using Microsoft.Extensions.Configuration;
 global using Services.Abstraction;
+global using Microsoft.AspNetCore.Identity;

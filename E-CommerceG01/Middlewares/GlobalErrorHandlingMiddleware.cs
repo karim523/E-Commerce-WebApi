@@ -54,7 +54,7 @@ namespace E_CommerceG01.Middlewares
             {
                 NotFoundException => (int)HttpStatusCode.NotFound,//404
                 UnauthorizedException => (int)HttpStatusCode.Unauthorized,//401
-                ValidationException validationException => HandleValidationException(validationException, response),//400
+                ValidationException validationException => HandleValidationException(validationException, response),//400 
                 _ => (int)HttpStatusCode.InternalServerError//500
             };
 

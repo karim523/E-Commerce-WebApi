@@ -1,8 +1,7 @@
 ﻿namespace Presentation
 {
-    [ApiController]
-    [Route("/api/[controller]")]
-    class BasketController(IServiceManager _serviceManager) : ControllerBase
+  
+    class BasketController(IServiceManager _serviceManager) : ApiController
     {
         [HttpGet("{id}")]
         public async Task<ActionResult<BasketDto>> Get(string id)
