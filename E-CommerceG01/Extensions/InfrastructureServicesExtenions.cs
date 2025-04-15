@@ -1,4 +1,7 @@
-﻿namespace E_CommerceG01.Extensions
+﻿using Domain.Entities;
+using Microsoft.AspNetCore.Identity;
+
+namespace E_CommerceG01.Extensions
 {
     public static class InfrastructureServicesExtenions
     {
@@ -14,6 +17,17 @@
             {
                 options.UseSqlServer(configuration.GetConnectionString("IdentityConnection"));
             });
+            services.AddIdentity<User, IdentityRole>(options =>
+            {
+                options.User.RequireUniqueEmail = true;
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequiredLength = 6;
+
+            }).AddEntityFrameworkStores<IdentityAppDbContext>();
+
             services.AddScoped<IDbIntializer, DbIntializer>();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
