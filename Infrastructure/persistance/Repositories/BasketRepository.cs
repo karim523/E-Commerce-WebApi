@@ -12,7 +12,7 @@
             
             if (data.IsNullOrEmpty) return null;
 
-            return JsonSerializer.Deserialize<CustomerBasket?>(data);
+            return JsonSerializer.Deserialize<CustomerBasket?>(data!);
         }
 
         public async Task<CustomerBasket?> UpdateBasketAsync(CustomerBasket basket, TimeSpan? timeToLive = null)

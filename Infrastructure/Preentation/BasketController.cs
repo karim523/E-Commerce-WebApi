@@ -1,5 +1,4 @@
-﻿
-namespace Presentation
+﻿namespace Presentation
 {
     [ApiController]
     [Route("/api/[controller]")]

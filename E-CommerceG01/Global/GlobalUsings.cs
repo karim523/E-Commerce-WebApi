@@ -14,3 +14,4 @@ global using Shared.ErrorModels;
 global using System.Net;
 global using StackExchange.Redis;
 global using Domain.Exceptions;
+global using Persistance.Identity;

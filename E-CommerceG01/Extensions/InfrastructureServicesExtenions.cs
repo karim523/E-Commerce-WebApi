@@ -9,6 +9,11 @@
             {
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
             });
+
+            services.AddDbContext<IdentityAppDbContext>(options =>
+            {
+                options.UseSqlServer(configuration.GetConnectionString("IdentityConnection"));
+            });
             services.AddScoped<IDbIntializer, DbIntializer>();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
