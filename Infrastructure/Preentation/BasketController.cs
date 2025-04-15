@@ -1,6 +1,8 @@
-﻿namespace Presentation
+﻿using Microsoft.AspNetCore.Authorization;
+
+namespace Presentation
 {
-  
+    [Authorize]
     class BasketController(IServiceManager _serviceManager) : ApiController
     {
         [HttpGet("{id}")]

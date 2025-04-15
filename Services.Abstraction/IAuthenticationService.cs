@@ -1,6 +1,4 @@
-﻿using Shared.Dtos;
-
-namespace Services.Abstraction
+﻿namespace Services.Abstraction
 {
     public interface IAuthenticationService
     {

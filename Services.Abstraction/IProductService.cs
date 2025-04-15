@@ -1,5 +1,5 @@
 ﻿global using Shared;
-using Shared.Dtos;
+global using Shared.Dtos;
 
 namespace Services.Abstraction
 {

@@ -1,5 +1,8 @@
-﻿namespace Presentation
+﻿using Microsoft.AspNetCore.Authorization;
+
+namespace Presentation
 {
+    [Authorize]
     public class ProductsController(IServiceManager serviceManager) : ApiController
     {
 

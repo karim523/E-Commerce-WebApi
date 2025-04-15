@@ -15,3 +15,6 @@ global using System.Net;
 global using StackExchange.Redis;
 global using Domain.Exceptions;
 global using Persistance.Identity;
+global using Domain.Entities;
+global using Microsoft.AspNetCore.Identity;
+global using Shared;

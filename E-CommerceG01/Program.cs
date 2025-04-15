@@ -13,7 +13,7 @@ namespace E_CommerceG01
             builder.Services.AddInfrastructureServices(builder.Configuration);
 
             //core services
-            builder.Services.AddCoreServices();
+            builder.Services.AddCoreServices(builder.Configuration);
 
 
             var app = builder.Build(); 
@@ -32,6 +32,7 @@ namespace E_CommerceG01
 
             app.UseHttpsRedirection();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
 

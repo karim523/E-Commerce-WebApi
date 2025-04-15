@@ -1,5 +1,4 @@
-﻿
-namespace E_CommerceG01.Middlewares
+﻿namespace E_CommerceG01.Middlewares
 {
     public class GlobalErrorHandlingMiddleware
     {
