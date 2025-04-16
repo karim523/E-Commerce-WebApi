@@ -18,3 +18,6 @@ global using Persistance.Identity;
 global using Domain.Entities;
 global using Microsoft.AspNetCore.Identity;
 global using Shared;
+global using Microsoft.AspNetCore.Authentication.JwtBearer;
+global using Microsoft.IdentityModel.Tokens;
+global using System.Text;

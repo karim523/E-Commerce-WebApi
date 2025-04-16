@@ -21,7 +21,7 @@ namespace E_CommerceG01
 
             #region Pipelines
             app.UseCustomMiddleware();
-            await app.SeedBbAsync();
+            await app.SeedDbAsync();
 
             if (app.Environment.IsDevelopment())
             {

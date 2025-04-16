@@ -1,6 +1,6 @@
 ﻿namespace Presentation
 {
-    class AuthenticationController(IServiceManager serviceManager) : ApiController
+    public class AuthenticationController(IServiceManager serviceManager) : ApiController
     {
         [HttpPost("Login")]
         public async Task<ActionResult<UserResultDto>> Login( LoginDto loginDto)

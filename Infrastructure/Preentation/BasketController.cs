@@ -1,9 +1,7 @@
-﻿using Microsoft.AspNetCore.Authorization;
-
-namespace Presentation
+﻿namespace Presentation
 {
     [Authorize]
-    class BasketController(IServiceManager _serviceManager) : ApiController
+    public class BasketController(IServiceManager _serviceManager) : ApiController
     {
         [HttpGet("{id}")]
         public async Task<ActionResult<BasketDto>> Get(string id)

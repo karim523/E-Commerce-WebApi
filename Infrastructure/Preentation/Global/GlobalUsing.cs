@@ -4,3 +4,4 @@ global using Shared;
 global using Shared.Dtos;
 global using Shared.ErrorModels;
 global using System.Net;
+global using Microsoft.AspNetCore.Authorization;
