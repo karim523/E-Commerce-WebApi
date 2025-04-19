@@ -2,7 +2,7 @@
 {
     public record ProductResultDTO
     {
-        public int Id { get; ini    ; }
+        public int Id { get; init; }
         public string Name { get; init; }
         public string Decription { get; init; }
         public string PictureUrl { get; init; }
