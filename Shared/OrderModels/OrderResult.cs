@@ -11,5 +11,7 @@
         public decimal SubTotal { get; init; }
         public DateTimeOffset OrderDate { get; init; } = DateTimeOffset.Now;
         public string PaymentIntenId { get; init; } = string.Empty;
+        public decimal Total { get; init; }
+
     }
 }
