@@ -10,4 +10,5 @@ global using System.Text.Json;
 global using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 global using Domain.Entities.OrderEntities;
 global using Order = Domain.Entities.OrderEntities.Order;
+global using Microsoft.AspNetCore.Identity;
 

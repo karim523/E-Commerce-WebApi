@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System.Text.Json;
-
-namespace Persistance.Data.DataSeeding
+﻿namespace Persistance.Data.DataSeeding
 {
     public class DbIntializer : IDbIntializer
     {

@@ -1,5 +1,4 @@
-﻿using ShippingAddress = Domain.Entities.OrderEntities.Address;
-namespace Domain.Entities.OrderEntities
+﻿namespace Domain.Entities.OrderEntities
 {
     public class Order : BaseEntity<Guid>
     {

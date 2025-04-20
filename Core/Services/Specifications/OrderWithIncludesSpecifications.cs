@@ -1,6 +1,4 @@
-﻿using Domain.Entities.OrderEntities;
-
-namespace Services.Specifications
+﻿namespace Services.Specifications
 {
     class OrderWithIncludesSpecifications : Specifications<Order>
     {

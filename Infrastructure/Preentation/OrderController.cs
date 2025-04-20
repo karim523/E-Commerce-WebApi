@@ -1,12 +1,4 @@
-﻿using Shared.OrderModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Presentation
+﻿namespace Presentation
 {
     public class OrderController(IServiceManager _serviceManager) : ApiController
     {
@@ -17,7 +9,7 @@ namespace Presentation
             var order = await _serviceManager.OrderService.CreateOrderAsync(request, email);
             return Ok(order);
         }
-        [HttpGet("user-orders")]
+        [HttpGet("AllOrders")]
         public async Task<ActionResult<IEnumerable<OrderRequest>>> GetAllOrders()
         {
             var email = User.FindFirstValue(ClaimTypes.Email);
