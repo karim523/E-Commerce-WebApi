@@ -16,3 +16,4 @@ global using System.Text;
 global using Domain.Entities.OrderEntities;
 global using Shared.OrderModels;
 global using ShippingAddress = Domain.Entities.OrderEntities.Address;
+global using Domain.Exceptions.NotFoundExceptions;

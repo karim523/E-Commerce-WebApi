@@ -1,15 +1,12 @@
-﻿using Domain.Entities.OrderEntities;
-using Shared.OrderModels;
-using ShippingAddress = Domain.Entities.OrderEntities.Address;
-namespace Services.MappingProfiles
+﻿namespace Services.MappingProfiles
 {
     public class OrderProfile : Profile
     {
         public OrderProfile()
         {
-            CreateMap<ShippingAddress, AddressDto>();
+            CreateMap<ShippingAddress, AddressDto>().ReverseMap();
             
-            CreateMap<DeliveryMethod, DeliveryMethodResult>();
+            CreateMap<DeliveryMethod, DeliveryMethodResult>().ReverseMap();
             
             CreateMap<OrderItem, OrderItemDto>()
                 .ForMember(dest => dest.ProductName, opt => opt.MapFrom(src => src.Product.ProductName))

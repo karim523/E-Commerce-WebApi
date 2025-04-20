@@ -1,6 +1,4 @@
-﻿using Domain.Exceptions.NotFoundExceptions;
-
-namespace Services
+﻿namespace Services
 {
     public class OrderService(IMapper mapper,IBasketRepository _basketRepository,IUnitOfWork _unitOfWork) : IOrderService
     {
