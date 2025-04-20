@@ -6,7 +6,7 @@
         {
 
         }
-        public OrderItem(ProductInOrderItem product, int quantity, double price)
+        public OrderItem(ProductInOrderItem product, int quantity, decimal price)
         {
             Product = product;
             Quantity = quantity;
@@ -15,6 +15,6 @@
 
         public ProductInOrderItem Product { get; set; }
         public int Quantity { get; set; }
-        public double Price { get; set; }
+        public decimal Price { get; set; }
     }
 }
