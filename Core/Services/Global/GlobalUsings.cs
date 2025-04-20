@@ -13,4 +13,6 @@ global using Microsoft.IdentityModel.Tokens;
 global using System.IdentityModel.Tokens.Jwt;
 global using System.Security.Claims;
 global using System.Text;
-
+global using Domain.Entities.OrderEntities;
+global using Shared.OrderModels;
+global using ShippingAddress = Domain.Entities.OrderEntities.Address;

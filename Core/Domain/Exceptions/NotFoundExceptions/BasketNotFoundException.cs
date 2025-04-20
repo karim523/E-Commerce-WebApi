@@ -1,4 +1,4 @@
-﻿namespace Domain.Exceptions
+﻿namespace Domain.Exceptions.NotFoundExceptions
 {
     public sealed class BasketNotFoundException : NotFoundException
     {

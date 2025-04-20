@@ -1,4 +1,6 @@
-﻿namespace E_CommerceG01.Middlewares
+﻿using Domain.Exceptions.NotFoundExceptions;
+
+namespace E_CommerceG01.Middlewares
 {
     public class GlobalErrorHandlingMiddleware
     {
