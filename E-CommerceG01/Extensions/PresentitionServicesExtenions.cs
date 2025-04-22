@@ -5,6 +5,16 @@
         public static IServiceCollection AddPresentitionServices(this IServiceCollection services)
         {
             services.AddControllers().AddApplicationPart(typeof(Presentation.AssemblyReference).Assembly);
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy", builder =>
+                {
+                    builder.AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .WithOrigins("https://localhost:4200");
+                });
+            }
+            );
             services.ConfigureSwagger();
             services.Configure<ApiBehaviorOptions>(options =>
             {

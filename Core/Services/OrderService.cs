@@ -4,7 +4,7 @@
     {
         public async Task<OrderResult> CreateOrderAsync(OrderRequest orderRequest, string userEmail)
         {
-            var shippingAddress = mapper.Map<ShippingAddress>(orderRequest.ShippingAddress);
+            var shippingAddress = mapper.Map<ShippingAddress>(orderRequest.ShipToAddress);
             var basket = await _basketRepository.GetBasketAsync(orderRequest.BasketId) ??
                 throw new BasketNotFoundException(orderRequest.BasketId);
             var orderItems = new List<OrderItem>();

@@ -1,13 +1,14 @@
-﻿namespace Services.MappingProfiles
+﻿using Address = Domain.Entities.Adress;
+namespace Services.MappingProfiles
 {
     public class OrderProfile : Profile
     {
         public OrderProfile()
         {
             CreateMap<ShippingAddress, AddressDto>().ReverseMap();
-            
-            CreateMap<DeliveryMethod, DeliveryMethodResult>().ReverseMap();
-            
+            CreateMap<Address, AddressDto>().ReverseMap();
+            CreateMap<DeliveryMethod, DeliveryMethodResult>().ForMember(dest => dest.Cost, opt => opt.MapFrom(src => src.Price));
+
             CreateMap<OrderItem, OrderItemDto>()
                 .ForMember(dest => dest.ProductName, opt => opt.MapFrom(src => src.Product.ProductName))
                 .ForMember(dest => dest.PictureUrl, opt => opt.MapFrom(src => src.Product.PictureUrl))

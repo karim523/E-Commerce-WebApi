@@ -1,6 +1,5 @@
 ﻿namespace Presentation
 {
-    [Authorize]
     public class ProductsController(IServiceManager serviceManager) : ApiController
     {
 
