@@ -6,7 +6,7 @@
         {
             builder.OwnsOne(o => o.ShippingAddress, s => s.WithOwner());
 
-            builder.HasMany(o => o.OrderItems).WithOne();
+            builder.HasMany(o => o.OrderItems).WithOne().OnDelete(DeleteBehavior.Cascade);
 
             builder.Property(o => o.PaymentStatus).HasConversion
             (

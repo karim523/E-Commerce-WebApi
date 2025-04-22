@@ -8,7 +8,7 @@
             ICollection<OrderItem> orderItems,
             DeliveryMethod deliveryMethod,
             decimal subTotal,
-            string paymentIntenId)
+            string paymentIntentId)
         {
             Id = Guid.NewGuid();
             UserEmail = userEmail;
@@ -16,7 +16,7 @@
             OrderItems = orderItems;
             DeliveryMethod = deliveryMethod;
             SubTotal = subTotal;
-            PaymentIntenId = paymentIntenId;
+            PaymentIntentId = paymentIntentId;
         }
 
         public string UserEmail { get; set; }
@@ -27,6 +27,6 @@
         public int? DeliveryMethodId { get; set; }
         public decimal SubTotal { get; set; }
         public DateTimeOffset OrderDate { get; set; } = DateTimeOffset.Now;
-        public string PaymentIntenId { get; set; } 
+        public string PaymentIntentId { get; set; } 
     }
 }

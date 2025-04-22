@@ -5,12 +5,15 @@
         public async Task<BasketDto> CreateOrUpdatePaymentIntentAsync(string basketId)
         {
             StripeConfiguration.ApiKey = _configuration.GetSection("StripeSettings")["SecretKey"];
+            
             var Basket = await _basketRepository.GetBasketAsync(basketId)??
                 throw new BasketNotFoundException(basketId);
+           
             foreach (var item in Basket.Items)
             {
                 var product = await _unitOfWork.GetRepository<Product, int>().GetByIdAsync(item.Id)
                     ?? throw new ProductNotFoundException(item.Id);
+            
                 if (item.Price != product.Price)
                     item.Price = product.Price;
             }
@@ -21,6 +24,7 @@
 
             var deliveryMethod = await _unitOfWork.GetRepository<DeliveryMethod, int>().GetByIdAsync(Basket.DeliveryMethodId.Value)
                 ?? throw new DeliveryMethodNotFoundException(Basket.DeliveryMethodId.Value);
+            
             Basket.ShippingPrice = deliveryMethod.Price;
 
             var amount = (long)(Basket.Items.Sum(item => item.Price * item.Quantity) + Basket.ShippingPrice) * 100; 
