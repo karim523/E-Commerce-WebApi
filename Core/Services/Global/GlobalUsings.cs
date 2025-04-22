@@ -18,3 +18,5 @@ global using Shared.OrderModels;
 global using ShippingAddress = Domain.Entities.OrderEntities.Address;
 global using Domain.Exceptions.NotFoundExceptions;
 global using Microsoft.EntityFrameworkCore;
+global using Stripe;
+global using Product = Domain.Entities.Product;
