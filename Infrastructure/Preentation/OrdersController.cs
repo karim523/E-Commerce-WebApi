@@ -1,6 +1,6 @@
 ﻿namespace Presentation
 {
-    public class OrderController(IServiceManager _serviceManager) : ApiController
+    public class OrdersController(IServiceManager _serviceManager) : ApiController
     {
         [HttpPost]
         public async Task<ActionResult<OrderRequest>> CreateOrder(OrderRequest request)
