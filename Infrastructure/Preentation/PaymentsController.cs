@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.DataProtection.KeyManagement;
-
-namespace Presentation
+﻿namespace Presentation
 {
     public class PaymentsController(IServiceManager serviceManager) : ApiController
     {

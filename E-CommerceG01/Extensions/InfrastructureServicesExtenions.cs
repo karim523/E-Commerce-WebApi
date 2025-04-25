@@ -1,4 +1,6 @@
-﻿namespace E_CommerceG01.Extensions
+﻿using Domain.Contracts;
+
+namespace E_CommerceG01.Extensions
 {
     public static class InfrastructureServicesExtenions
     {
@@ -30,6 +32,8 @@
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddScoped<IBasketRepository, BasketRepository>();
+
+            services.AddScoped<ICasheRepository, CasheRepository>();
 
             services.AddScoped<IBasketService, BasketService>();
 
