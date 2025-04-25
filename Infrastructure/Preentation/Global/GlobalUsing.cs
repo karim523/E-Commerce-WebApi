@@ -7,3 +7,4 @@ global using System.Net;
 global using Microsoft.AspNetCore.Authorization;
 global using Shared.OrderModels;
 global using System.Security.Claims;
+global using Microsoft.AspNetCore.Mvc.Filters;

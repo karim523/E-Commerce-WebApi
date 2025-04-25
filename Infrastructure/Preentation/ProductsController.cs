@@ -2,7 +2,7 @@
 {
     public class ProductsController(IServiceManager serviceManager) : ApiController
     {
-
+        [RedisCashe(60)]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProductResultDTO>>> GetAllProducts([FromQuery]ProductSpecificationsParameters parameters)
         {

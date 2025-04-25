@@ -4,6 +4,6 @@
     {
         Task<string?> GetCasheValueAsync(string key);
 
-        Task SetCasheValueAsync(string key, string value, TimeSpan duration);
+        Task SetCasheValueAsync(string key, object value, TimeSpan duration);
     }
 }
