@@ -4,7 +4,7 @@
     {
         public async Task<OrderResult> CreateOrderAsync(OrderRequest orderRequest, string userEmail)
         {
-            var shippingAddress = mapper.Map<ShippingAddress>(orderRequest.ShippingAddress);
+            var shippingAddress = mapper.Map<ShippingAddress>(orderRequest.ShipToAddress);
             var basket = await _basketRepository.GetBasketAsync(orderRequest.BasketId) ??
                 throw new BasketNotFoundException(orderRequest.BasketId);
             var orderItems = new List<OrderItem>();
@@ -16,9 +16,16 @@
             }
             var deliveryMethod = await _unitOfWork.GetRepository<DeliveryMethod,int>()
                 .GetByIdAsync(orderRequest.DeliveryMethodId) ?? throw new DeliveryMethodNotFoundException(orderRequest.DeliveryMethodId);
+            var orderRepo = _unitOfWork.GetRepository<Order, Guid>();
+            var existingOrder = await orderRepo.GetByIdAsync(new OrderWithPaymentIntentIdSpecifications(basket.PaymentIntentId));
+            if (existingOrder != null)
+            {
+                orderRepo.Delete(existingOrder);
+            }
             var subTotal = orderItems.Sum(item => item.Price * item.Quantity);
-            var order = new Order(userEmail, shippingAddress, orderItems, deliveryMethod, subTotal);
-            await _unitOfWork.GetRepository<Order, Guid>().AddAsync(order);
+
+            var order = new Order(userEmail, shippingAddress, orderItems, deliveryMethod, subTotal,basket.PaymentIntentId);
+            await orderRepo.AddAsync(order);
             await _unitOfWork.SaveChangesAsync();
             return mapper.Map<OrderResult>(order);
         }

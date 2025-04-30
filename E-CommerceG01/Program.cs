@@ -29,7 +29,7 @@ namespace E_CommerceG01
                 app.UseSwaggerUI();
             }
             app.UseStaticFiles();
-
+            app.UseCors("CorsPolicy");
             app.UseHttpsRedirection();
 
             app.UseAuthentication();
