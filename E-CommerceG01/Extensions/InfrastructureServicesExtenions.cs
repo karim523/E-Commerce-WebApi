@@ -1,6 +1,4 @@
-﻿using Domain.Contracts;
-
-namespace E_CommerceG01.Extensions
+﻿namespace E_CommerceG01.Extensions
 {
     public static class InfrastructureServicesExtenions
     {
