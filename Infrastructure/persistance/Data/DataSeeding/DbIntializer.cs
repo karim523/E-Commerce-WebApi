@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System.Text.Json;
-
-namespace Persistance.Data.DataSeeding
+﻿namespace Persistance.Data.DataSeeding
 {
     public class DbIntializer : IDbIntializer
     {
@@ -20,8 +17,8 @@ namespace Persistance.Data.DataSeeding
         {
             try
             {
-                if (_context.Database.GetPendingMigrations().Any())
-                {
+                //if (_context.Database.GetPendingMigrations().Any())
+                //{
                     await _context.Database.MigrateAsync();
                     if (!_context.ProductTypes.Any())
                     {
@@ -58,8 +55,18 @@ namespace Persistance.Data.DataSeeding
                         }
 
                     }
+                    if (!_context.DeliveryMethods.Any())
+                    {
+                        var methodsData = await File.ReadAllTextAsync(@"..\Infrastructure\Persistance\Data\DataSeeding\delivery.json");
+                        var methods = JsonSerializer.Deserialize<List<DeliveryMethod>>(methodsData);
+                        if (methods is not null && methods.Any())
+                        {
+                            await _context.AddRangeAsync(methods);
+                            await _context.SaveChangesAsync();
+                        }
 
-                }
+                    }
+                //}
             }
             catch (Exception ex)
             {

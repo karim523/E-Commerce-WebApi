@@ -5,3 +5,5 @@ global using Shared.Dtos;
 global using Shared.ErrorModels;
 global using System.Net;
 global using Microsoft.AspNetCore.Authorization;
+global using Shared.OrderModels;
+global using System.Security.Claims;
