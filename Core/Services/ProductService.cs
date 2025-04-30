@@ -1,6 +1,4 @@
-﻿using Domain.Exceptions;
-
-namespace Services
+﻿namespace Services
 {
     public class ProductService(IUnitOfWork _unitOfWork, IMapper _mapper) : IProductService
     {

@@ -2,12 +2,12 @@
 {
     public record ProductResultDTO
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Decription { get; set; }
-        public string PictureUrl { get; set; }
-        public decimal Price { get; set; }
-        public string TypeName { get; set; }
-        public string BrandName { get; set; }
+        public int Id { get; ini    ; }
+        public string Name { get; init; }
+        public string Decription { get; init; }
+        public string PictureUrl { get; init; }
+        public decimal Price { get; init; }
+        public string TypeName { get; init; }
+        public string BrandName { get; init; }
     }
 }
