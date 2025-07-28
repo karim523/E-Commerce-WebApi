@@ -31,6 +31,8 @@
 
             services.AddScoped<IBasketRepository, BasketRepository>();
 
+            services.AddScoped<ICasheRepository, CasheRepository>();
+
             services.AddScoped<IBasketService, BasketService>();
 
             services.AddSingleton<IConnectionMultiplexer>(services=> ConnectionMultiplexer.Connect(configuration.GetConnectionString("Redis")!));

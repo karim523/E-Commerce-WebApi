@@ -77,13 +77,13 @@
         public async Task IntializeIdentityAsync()
         { 
             //seed roles
-            if(_roleManager.Roles.Any())
+            if(!_roleManager.Roles.Any())
             {
                 await _roleManager.CreateAsync(new IdentityRole("Admin"));    
                 await _roleManager.CreateAsync(new IdentityRole("SuperAdmin"));    
             }
             //seed users ,assign user ==> role
-            if (_userManager.Users.Any())
+            if (!_userManager.Users.Any())
             {
                 var adminUser = new User()
                 {
